@@ -1,9 +1,7 @@
 <template>
   <Header />
   <Navbar />
-  <div class="container is-max-tablet mt-5">
-    <TodoList />
-  </div>
+  <TodoList />
 </template>
 
 <script>

@@ -1,4 +1,29 @@
-<template></template>
+<template>
+  <div class="panel is-primary mt-5">
+    <p class="panel-heading">Add todo</p>
+    <div class="panel-block p-5">
+      <input
+        type="text"
+        v-model="todo.title"
+        class="input is-outlined"
+        placeholder="Title"
+      />
+    </div>
+    <div class="panel-block p-5">
+      <textarea
+        v-model="todo.description"
+        class="textarea is-outlined"
+        placeholder="Description"
+      ></textarea>
+    </div>
+    <div class="panel-block p-5">
+      <button class="button is-primary is-outlined">Save todo</button>
+      <button class="button is-warning is-outlined ml-5" @click="cancelEdit">
+        Cancel
+      </button>
+    </div>
+  </div>
+</template>
 
 <script>
 export default {
@@ -6,8 +31,14 @@ export default {
   data() {
     return {};
   },
-  props: {
-    todo: Object,
+  props: ["todo"],
+  methods: {
+    cancelEdit() {
+      this.$emit("cancel-edit");
+    },
+    saveTodo() {
+      this.$emit("save-todo");
+    },
   },
 };
 </script>
