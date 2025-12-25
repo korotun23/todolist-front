@@ -39,6 +39,7 @@ export default {
       this.$emit("cancel-edit");
     },
     saveTodo() {
+      console.log(this.todo);
       this.$emit("save-todo", this.todo);
     },
   },

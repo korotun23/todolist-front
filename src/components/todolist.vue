@@ -9,7 +9,7 @@
       v-if="isNewTodo"
       :todo="newTodo"
       @cancel-edit="isNewTodo = false"
-      @save-todo="saveTodo(todo)"
+      @save-todo="saveTodo"
     />
     <button
       class="button is-primary is-outlined mt-5 todo-list-controls"
@@ -83,7 +83,10 @@ export default {
       todo.isEdit = false;
     },
     saveTodo(todo) {
-      console.log(todo);
+      todo.id = this.todos.length + 1;
+      todo.isNew = false;
+      this.todos.push(todo);
+      this.isNewTodo = false;
     },
   },
 };
