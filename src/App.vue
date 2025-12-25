@@ -19,4 +19,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.todo-list-controls .icon {
+  line-height: inherit;
+}
+</style>

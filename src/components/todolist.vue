@@ -87,13 +87,22 @@ export default {
       todo.isNew = false;
       this.todos.push(todo);
       this.isNewTodo = false;
+      this.clearNewTodo();
+    },
+    clearNewTodo() {
+      this.newTodo = {
+        title: "",
+        description: "",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        isDone: false,
+        isNew: true,
+        isEdit: false,
+        id: 0,
+      };
     },
   },
 };
 </script>
 
-<style lang="scss">
-.todo-list-controls .icon {
-  line-height: inherit;
-}
-</style>
+<style lang="scss"></style>

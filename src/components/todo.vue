@@ -5,12 +5,22 @@
       <p>{{ todo.description }}</p>
     </div>
     <div class="panel-block p-5">
-      <button class="button is-primary is-outlined" @click="todo.isEdit = true">
-        Edit
+      <button
+        class="button is-primary is-outlined todo-list-controls"
+        @click="todo.isEdit = true"
+      >
+        <span class="icon material-symbols-outlined todo-list-controls"
+          >edit</span
+        >
+        <span>Edit</span>
       </button>
     </div>
   </article>
-  <EditTodo v-else="todo.isEdit" :todo="todo" />
+  <EditTodo
+    v-else="todo.isEdit"
+    :todo="todo"
+    @cancel-edit="todo.isEdit = false"
+  />
 </template>
 
 <script>
@@ -27,4 +37,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.todo-list-controls {
+  line-height: inherit;
+}
+</style>

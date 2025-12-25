@@ -1,6 +1,6 @@
 <template>
   <div class="panel is-primary mt-5">
-    <p class="panel-heading">Add todo</p>
+    <p class="panel-heading">{{ todo.isNew ? "Add todo" : "Edit todo" }}</p>
     <div class="panel-block p-5">
       <input
         type="text"
@@ -17,11 +17,20 @@
       ></textarea>
     </div>
     <div class="panel-block p-5">
-      <button class="button is-primary is-outlined" @click="saveTodo">
-        Save todo
+      <button
+        v-if="todo.isNew"
+        class="button is-primary is-outlined mr-5 todo-list-controls"
+        @click="saveTodo"
+      >
+        <span class="icon material-symbols-outlined mr-2">save</span>
+        Save
       </button>
-      <button class="button is-warning is-outlined ml-5" @click="cancelEdit">
-        Cancel
+      <button
+        class="button is-warning is-outlined todo-list-controls"
+        @click="closeEdit"
+      >
+        <span class="icon material-symbols-outlined mr-2">close</span>
+        Close
       </button>
     </div>
   </div>
@@ -35,11 +44,10 @@ export default {
   },
   props: ["todo"],
   methods: {
-    cancelEdit() {
+    closeEdit() {
       this.$emit("cancel-edit");
     },
     saveTodo() {
-      console.log(this.todo);
       this.$emit("save-todo", this.todo);
     },
   },
