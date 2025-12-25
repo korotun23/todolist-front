@@ -9,7 +9,7 @@ export default defineConfig({
       scss: {
         additionalData: `
         @use "bulma/sass/utilities" as *;`,
-        silenceDeprecations: true,
+        silenceDeprecations: ["if-function"],
       },
     },
   },

@@ -17,7 +17,9 @@
       ></textarea>
     </div>
     <div class="panel-block p-5">
-      <button class="button is-primary is-outlined">Save todo</button>
+      <button class="button is-primary is-outlined" @click="saveTodo">
+        Save todo
+      </button>
       <button class="button is-warning is-outlined ml-5" @click="cancelEdit">
         Cancel
       </button>
@@ -37,7 +39,7 @@ export default {
       this.$emit("cancel-edit");
     },
     saveTodo() {
-      this.$emit("save-todo");
+      this.$emit("save-todo", this.todo);
     },
   },
 };
