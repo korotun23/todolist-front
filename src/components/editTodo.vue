@@ -32,6 +32,14 @@
         <span class="icon material-symbols-outlined mr-2">close</span>
         Close
       </button>
+      <button
+        v-if="!todo.isNew"
+        class="button is-danger is-outlined todo-list-controls ml-5"
+        @click="deleteTodo"
+      >
+        <span class="icon material-symbols-outlined mr-2">delete</span>
+        Delete
+      </button>
     </div>
   </div>
 </template>
@@ -49,6 +57,9 @@ export default {
     },
     saveTodo() {
       this.$emit("save-todo", this.todo);
+    },
+    deleteTodo() {
+      this.$emit("delete-todo", this.todo);
     },
   },
 };
