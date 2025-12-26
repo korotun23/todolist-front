@@ -2,8 +2,9 @@
   <nav class="navbar is-primary has-background-primary-light">
     <div class="container">
       <div class="navbar-start">
-        <a href="" class="navbar-item"
-          ><span class="icon material-symbols-outlined">list</span>Tasks</a
+        <router-link :to="{ name: 'TodoList' }" class="navbar-item"
+          ><span class="icon material-symbols-outlined">list</span
+          >Tasks</router-link
         >
         <a href="" class="navbar-item">
           <span class="icon material-symbols-outlined">export_notes</span>
@@ -11,8 +12,9 @@
         >
       </div>
       <div class="navbar-end">
-        <a href="" class="navbar-item">
-          <span class="icon material-symbols-outlined">info</span>About</a
+        <router-link :to="{ name: 'About' }" class="navbar-item">
+          <span class="icon material-symbols-outlined">info</span
+          >About</router-link
         >
       </div>
     </div>
