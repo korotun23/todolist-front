@@ -1,0 +1,7 @@
+{
+    "todos": [
+        { "id": 1, "title": "Todo 1", "description": "Description 1", "isDone": false, "isNews": false, "isEdit": false, "createdAt": "2025-12-26T22:43:53.000Z", "updatedAt": "2025-12-26T22:43:53.000Z", "deletedAt": null },
+        { "id": 2, "title": "Todo 2", "description": "Description 2", "isDone": true, "isNews": false, "isEdit": false, "createdAt": "2025-12-26T22:43:53.000Z", "updatedAt": "2025-12-26T22:43:53.000Z", "deletedAt": null },
+        { "id": 3, "title": "Todo 3", "description": "Description 3", "isDone": false, "isNews": false, "isEdit": false, "createdAt": "2025-12-26T22:43:53.000Z", "updatedAt": "2025-12-26T22:43:53.000Z", "deletedAt": null }
+    ]
+}

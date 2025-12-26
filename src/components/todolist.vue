@@ -1,5 +1,5 @@
 <template>
-  <div class="container is-max-tablet mt-5">
+  <div v-if="todos.length" class="container is-max-tablet mt-5">
     <ul>
       <li v-for="todo in todos" :key="todo.id">
         <Todo :todo="todo" @cancel-edit="cancelEdit(todo)" />
@@ -19,6 +19,9 @@
       <span>Add todo</span>
     </button>
   </div>
+  <div v-else class="container is-max-tablet mt-5">
+    <div class="notification is-info is-light">Loading todos...</div>
+  </div>
 </template>
 
 <script>
@@ -33,44 +36,14 @@ export default {
   },
   data() {
     return {
-      todos: [
-        {
-          title: "Todo 1",
-          description: "Description 1",
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          isDone: false,
-          isNew: false,
-          isEdit: false,
-          id: 1,
-        },
-        {
-          title: "Todo 2",
-          description: "Description 2",
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          isDone: false,
-          isNew: false,
-          isEdit: false,
-          id: 2,
-        },
-        {
-          title: "Todo 3",
-          description: "Description 3",
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          isDone: false,
-          isNew: false,
-          isEdit: false,
-          id: 3,
-        },
-      ],
+      todos: [],
       isNewTodo: false,
       newTodo: {
         title: "",
         description: "",
         createdAt: new Date(),
         updatedAt: new Date(),
+        deletedAt: null,
         isDone: false,
         isNew: true,
         isEdit: false,
@@ -101,6 +74,12 @@ export default {
         id: 0,
       };
     },
+  },
+  mounted() {
+    fetch("http://localhost:3000/todos")
+      .then((res) => res.json())
+      .then((data) => (this.todos = data))
+      .catch((err) => console.log(err));
   },
 };
 </script>
